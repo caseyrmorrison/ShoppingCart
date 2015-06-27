@@ -1,0 +1,98 @@
+import static org.junit.Assert.*;
+
+import org.junit.Before;
+import org.junit.Test;
+
+/*
+ * TCSS 305 April 16, 2013 
+ */
+
+/**
+ *
+ *
+ * @author Casey Morrison
+ * @version April 16, 2013
+ */
+public class ItemTest {
+
+  /** A tolerance used when testing double values for equality. */
+  private static final double TOLERANCE = .00001;
+  
+  // The test fixture. The Item objects I will use in the tests.
+  
+  /** An Item to use in tests. */
+  private Item my_item;
+  
+  /** Another Item to use in tests. */
+  private Item my_other_item;
+  
+  /** An item order used for tests. */
+  private ItemOrder my_item_order;
+  
+  /**
+   * Sets up the test fixture. 
+   */
+  @Before
+  public void setUp() {
+    my_item = new Item("Item1", 5.0); // no bulk values
+    my_other_item = new Item("Item2", 6.0, 10, 20.0); // setting the bulk values
+  }
+
+  /**
+   * Test method for HashCode.
+   */
+  @Test
+  public void testHashCode() {
+    // equal objects should have equal hashCode values.
+    final Item item1 = my_item;
+    
+    assertEquals("These are not equal!", item1.hashCode(), my_item.hashCode());
+  }
+
+  /**
+   * Test of the overloaded Item constructor.
+   * Test method for Item(String, double).
+   */
+  @Test
+  public void testItemStringDouble() {
+    // test to see if the fields were set correctly
+    assertEquals("They are not equal.", "Item1, $5.00", my_item.toString());
+    assertNotSame(my_item, my_other_item);
+  }
+
+  /**
+   * Test of the default Item constructor.
+   * Test method for Item(String, double, int, double).
+   */
+  @Test
+  public void testItemStringDoubleIntDouble() {
+    assertEquals("They are not equal.", "Item2, $6.00 (10 for $20.00)",
+                 my_other_item.toString());
+    assertNotSame(my_item, my_other_item);
+  }
+
+  /**
+   * Test method for calculatePriceFor(int).
+   */
+  @Test
+  public void testCalculatePriceFor() {
+    asserEquals()
+  }
+
+  /**
+   * Test method for toString().
+   */
+  @Test
+  public void testToString() {
+    fail("Not yet implemented");
+  }
+
+  /**
+   * Test method for equals(java.lang.Object).
+   */
+  @Test
+  public void testEqualsObject() {
+    fail("Not yet implemented");
+  }
+
+}
